@@ -19,7 +19,7 @@ const Board = () => {
       {squares.map((item: number, index: number) => {
         return (
           <div className="w-20 h-20 border-2" key={index}>
-            <Square player={player} changePlayer={changePlayer} />
+            <Square player={player}   changePlayer={changePlayer} />
           </div>
         );
       })} 
