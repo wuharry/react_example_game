@@ -4,6 +4,9 @@ import { useEffect, useState } from "react";
 
 interface SquareProps {
   player: string;
+  index: number;
+  squares: Array<string>;
+  setSquares: (data: any) => void;
   changePlayer: () => void;
 }
 const Square: React.FC<SquareProps> = (props) => {
@@ -11,7 +14,21 @@ const Square: React.FC<SquareProps> = (props) => {
   const [value, setValue] = useState("");
   const clickHandler = (): void => {
     if (value === "") {
-      setValue(props.player === "player1" ? "X" : "O");
+      if (props.player === "player1") {
+        setValue("X");
+        props.setSquares((prevArray: any) => {
+          const newArray = [...prevArray];
+          newArray[props.index] = "player1";
+          return newArray;
+        });
+      } else if (props.player === "player2") {
+        setValue("O");
+        props.setSquares((prevArray: any) => {
+          const newArray = [...prevArray];
+          newArray[props.index] = "player2";
+          return newArray;
+        });
+      }
       props.changePlayer();
     }
 

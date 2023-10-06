@@ -3,13 +3,8 @@
 
 import { useEffect } from "react";
 import Board from "./board";
-import service from "../api/fetchMethod";
 export default function Game() {
   useEffect(() => {
-    service.get("/casinos").then((res) => {
-      console.log(res.data);
-      return res.data;
-    });
   }, []);
   return <Board />;
 }
