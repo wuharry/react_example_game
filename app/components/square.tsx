@@ -19,7 +19,6 @@ const Square: React.FC<SquareProps> = (props) => {
         props.setSquares((prevArray: any) => {
           const newArray = [...prevArray];
           newArray[props.index] = "player1";
-          console.log(newArray);
           return newArray;
         });
       } else if (props.player === "player2") {
@@ -27,7 +26,6 @@ const Square: React.FC<SquareProps> = (props) => {
         props.setSquares((prevArray: any) => {
           const newArray = [...prevArray];
           newArray[props.index] = "player2";
-          console.log(newArray);
           return newArray;
         });
       }
